@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "zipcode_zh_cn"
+
+if ARGV && ARGV.size > 0
+  addr = ARGV[ 0 ].dup
+  zipcode = ZipcodeZhCn.get_zipcode(addr)
+  puts zipcode
+else
+  puts "请输入您要查询的地址(只支持中国大陆地址)"
+end
