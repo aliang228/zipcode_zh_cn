@@ -36,18 +36,15 @@ module ZipcodeZhCn
         end
 
         if zipcode.length != 6
-          puts "zipcode is not right "
+          puts "没有找到您要的邮编"
         end
       end
     rescue Exception => e
       if try_count < 6
         http.close if http
         http = HTTP.persistent ApiHost
-        puts "try_count = #{try_count} :sleep #{try_count} seconds : Exception ====> #{e}"
         sleep(try_count)
         retry
-      else
-        puts "try out=>#{addr}"
       end
     end
 
